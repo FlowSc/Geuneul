@@ -8,10 +8,9 @@
 
 import UIKit
 
-class SunnyViewController: UIViewController, UICollectionViewDataSource {
+class SunnyViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
     @IBOutlet weak var sunnyCollectionView: UICollectionView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +37,11 @@ class SunnyViewController: UIViewController, UICollectionViewDataSource {
             cell.sunnyImgView.image =  TestKolodaViewController.sunnyArray[indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
     }
 
 

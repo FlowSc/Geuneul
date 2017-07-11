@@ -9,6 +9,7 @@
 import UIKit
 import Koloda
 import Photos
+import RealmSwift
 
 
 class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaViewDataSource {
@@ -17,9 +18,10 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
     private var imageManager = PHCachingImageManager.default()
     var scImageArray:PHFetchResult<PHAsset>!
     var realImageArray:[UIImage] = []
-    
     static var sunnyArray:[UIImage] = []
     static var clowdyArray:[UIImage] = []
+    let realm = try! Realm()
+    
 
     @IBOutlet weak var kolodaView: KolodaView!
     
@@ -40,8 +42,10 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
             let realImage = scImageArray.object(at: i)
             let scOption = PHImageRequestOptions.init()
             scOption.deliveryMode = .highQualityFormat
+            let scImageSize = CGSize(width:realImage.pixelWidth, height:realImage.pixelHeight)
+
             imageManager.requestImage(for: realImage,
-                                      targetSize: CGSize(width: 300, height: 400),
+                                      targetSize: scImageSize,
                                       contentMode: PHImageContentMode.aspectFit,
                                       options: scOption,
                                       resultHandler: { image, _ in
@@ -85,7 +89,6 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
         self.kolodaView.reloadData()
         
     }
@@ -97,15 +100,16 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         
+        print(koloda.isRunOutOfCards)
+        
         let outOfCardAlert = UIAlertController.init(title: "오늘들을 모두 살펴보셨습니다.", message: nil, preferredStyle: .alert)
         
         let outOfCardAlertBtn = UIAlertAction.init(title: "내일을 기다릴게요.", style: .default, handler: nil)
         outOfCardAlert.addAction(outOfCardAlertBtn)
         
-        let reloadAction = UIAlertAction.init(title: "다시 확인하시겠어요?", style: .default) {[unowned self] (UIAlertAction) in
-            self.loadImage()
-            self.makeRealArray()
-            self.kolodaView.reloadData()
+        let reloadAction = UIAlertAction.init(title: "기억의 끝을 잡고..", style: .default) {[unowned self] (UIAlertAction) in
+
+            self.kolodaView.revertAction()
         }
         
         outOfCardAlert.addAction(reloadAction)
@@ -177,6 +181,12 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
     
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
         return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)?.first as? OverlayView
+    }
+    
+    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+        if koloda.isRunOutOfCards == true {
+            self.kolodaView.revertAction()
+        }
     }
 }
 

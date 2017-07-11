@@ -10,6 +10,10 @@
 		4D45B1C32DCCB57D57052485 /* Pods_Geuneul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB2741F0B951D770C84CE88 /* Pods_Geuneul.framework */; };
 		757FAECB1F0EB20800F94D87 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FAECA1F0EB20800F94D87 /* MainTabBarViewController.swift */; };
 		757FAEF21F1393FF00F94D87 /* TestImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FAEF11F1393FF00F94D87 /* TestImageView.swift */; };
+		757FAF171F14D13A00F94D87 /* Setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 757FAF161F14D13A00F94D87 /* Setting.plist */; };
+		757FAF191F14D53F00F94D87 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FAF181F14D53F00F94D87 /* DataCenter.swift */; };
+		757FAF1B1F14E15500F94D87 /* ScSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FAF1A1F14E15500F94D87 /* ScSettingViewController.swift */; };
+		757FAF1D1F14E48B00F94D87 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FAF1C1F14E48B00F94D87 /* SwitchTableViewCell.swift */; };
 		75F4D9A71F0E0E1E00F80D76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4D9A61F0E0E1E00F80D76 /* AppDelegate.swift */; };
 		75F4D9AC1F0E0E1E00F80D76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F4D9AA1F0E0E1E00F80D76 /* Main.storyboard */; };
 		75F4D9AE1F0E0E1E00F80D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F4D9AD1F0E0E1E00F80D76 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 		01B1F6608A0B22C2A396C97F /* Pods-Geuneul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geuneul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geuneul/Pods-Geuneul.debug.xcconfig"; sourceTree = "<group>"; };
 		757FAECA1F0EB20800F94D87 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		757FAEF11F1393FF00F94D87 /* TestImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestImageView.swift; sourceTree = "<group>"; };
+		757FAF161F14D13A00F94D87 /* Setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Setting.plist; sourceTree = "<group>"; };
+		757FAF181F14D53F00F94D87 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		757FAF1A1F14E15500F94D87 /* ScSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScSettingViewController.swift; sourceTree = "<group>"; };
+		757FAF1C1F14E48B00F94D87 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		75F4D9A31F0E0E1E00F80D76 /* Geuneul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geuneul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F4D9A61F0E0E1E00F80D76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F4D9AB1F0E0E1E00F80D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,8 +109,8 @@
 		757FAEF51F148E8C00F94D87 /* ViewsAndCells */ = {
 			isa = PBXGroup;
 			children = (
+				757FAF1C1F14E48B00F94D87 /* SwitchTableViewCell.swift */,
 				757FAEF11F1393FF00F94D87 /* TestImageView.swift */,
-				E9693C951F0E66CC00FCC6C4 /* SunnyViewController.swift */,
 				E9693C9B1F0E9EEC00FCC6C4 /* SunnyCollectionViewCell.swift */,
 				E9693C9D1F0E9EFA00FCC6C4 /* CloudyCollectionViewCell.swift */,
 				75F4D9BA1F0E162800F80D76 /* OverlayView.xib */,
@@ -139,6 +147,8 @@
 			children = (
 				75F4D9A61F0E0E1E00F80D76 /* AppDelegate.swift */,
 				75F4D9AA1F0E0E1E00F80D76 /* Main.storyboard */,
+				757FAF161F14D13A00F94D87 /* Setting.plist */,
+				757FAF181F14D53F00F94D87 /* DataCenter.swift */,
 				75F4D9AD1F0E0E1E00F80D76 /* Assets.xcassets */,
 				75F4D9AF1F0E0E1E00F80D76 /* LaunchScreen.storyboard */,
 				75F4D9B21F0E0E1E00F80D76 /* Info.plist */,
@@ -177,7 +187,9 @@
 		E9693C6E1F0E20BC00FCC6C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				757FAF1A1F14E15500F94D87 /* ScSettingViewController.swift */,
 				75F4D9B81F0E162800F80D76 /* TestKolodaViewController.swift */,
+				E9693C951F0E66CC00FCC6C4 /* SunnyViewController.swift */,
 				E9693C6C1F0E20A600FCC6C4 /* IntroViewController.swift */,
 				757FAECA1F0EB20800F94D87 /* MainTabBarViewController.swift */,
 				E9693C711F0E2C4800FCC6C4 /* SignUpViewController.swift */,
@@ -255,6 +267,7 @@
 				E9693C791F0E2E4500FCC6C4 /* white_back_button.png in Resources */,
 				E9693C761F0E2D0C00FCC6C4 /* whiteLogo.png in Resources */,
 				75F4D9B11F0E0E1E00F80D76 /* LaunchScreen.storyboard in Resources */,
+				757FAF171F14D13A00F94D87 /* Setting.plist in Resources */,
 				75F4D9C11F0E162800F80D76 /* OverlayView.xib in Resources */,
 				E9693C701F0E2C1000FCC6C4 /* logInBackground.png in Resources */,
 				E9693C6A1F0E204700FCC6C4 /* introBackgraoundImg.png in Resources */,
@@ -322,9 +335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757FAF191F14D53F00F94D87 /* DataCenter.swift in Sources */,
 				757FAECB1F0EB20800F94D87 /* MainTabBarViewController.swift in Sources */,
 				E9693C961F0E66CC00FCC6C4 /* SunnyViewController.swift in Sources */,
 				75F4D9C51F0E162800F80D76 /* CustomKolodaView.swift in Sources */,
+				757FAF1B1F14E15500F94D87 /* ScSettingViewController.swift in Sources */,
+				757FAF1D1F14E48B00F94D87 /* SwitchTableViewCell.swift in Sources */,
 				75F4D9A71F0E0E1E00F80D76 /* AppDelegate.swift in Sources */,
 				E9693C741F0E2C5600FCC6C4 /* LogInViewController.swift in Sources */,
 				E9693C721F0E2C4800FCC6C4 /* SignUpViewController.swift in Sources */,

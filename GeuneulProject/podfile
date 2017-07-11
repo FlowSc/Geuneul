@@ -9,5 +9,7 @@ target 'Geuneul' do
 pod 'Koloda', '~> 4.1'
 pod 'SwiftPhotoGallery', '~> 3.1'
 pod 'TLPhotoPicker', '~> 1.1'
+pod 'RealmSwift', '~> 2.8'
+pod 'Realm', '~> 2.8'
 
 end

@@ -12,6 +12,8 @@ import Photos
 class TestImageView: UIView {
 
     var imageView:UIImageView?
+    var scTextLabel:UILabel?
+    let dateFormatter = DateFormatter()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +25,10 @@ class TestImageView: UIView {
     func createView()
     {
         imageView = UIImageView()
+        scTextLabel = UILabel()
         self.addSubview(imageView!)
+        self.addSubview(scTextLabel!)
+        
     }
     
     override func layoutSubviews() {
@@ -33,18 +38,26 @@ class TestImageView: UIView {
     
     func setImageData(_ realImage:PHAsset)
     {
-        
+        dateFormatter.dateFormat = "y년 M월 d일"
+        let scImageSize = CGSize(width:realImage.pixelWidth, height:realImage.pixelHeight)
         let scOption = PHImageRequestOptions.init()
         scOption.deliveryMode = .highQualityFormat
         PHCachingImageManager.default().requestImage(for: realImage,
-                                  targetSize: CGSize(width: 1200, height: 1200),
+                                  targetSize: scImageSize,
                                   contentMode: PHImageContentMode.aspectFit,
                                   options: scOption,
                                   resultHandler: { image, _ in
                                     
                                     print(image!.size)
                                     self.imageView?.image = image
-                                   
+//                                    if let data = UIImagePNGRepresentation(image!)
+//                                    {
+//                                        let filename = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)
+//                                        
+//                                        data.
+//                                    }
+                                    print(self.dateFormatter.string(from: realImage.creationDate!))
+                                    self.scTextLabel?.text = self.dateFormatter.string(from: realImage.creationDate!)
         })
     }
     

@@ -13,7 +13,6 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -45,7 +44,9 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     func updatePageNumb() {
         let pageNumb: Int = Int(scrollView.contentOffset.x - 20 / self.view.bounds.width)
+        let pageNumb2 :Int = Int(scrollView.contentOffset.y - 20 / self.view.bounds.height)
         self.pageControl.currentPage = pageNumb
+        self.pageControl.currentPage = pageNumb2
     }
     
     @IBAction func pageControlValueChanged(_ sender: UIPageControl) {
