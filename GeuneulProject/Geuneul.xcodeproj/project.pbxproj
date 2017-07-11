@@ -98,6 +98,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		757FAEF51F148E8C00F94D87 /* ViewsAndCells */ = {
+			isa = PBXGroup;
+			children = (
+				757FAEF11F1393FF00F94D87 /* TestImageView.swift */,
+				E9693C951F0E66CC00FCC6C4 /* SunnyViewController.swift */,
+				E9693C9B1F0E9EEC00FCC6C4 /* SunnyCollectionViewCell.swift */,
+				E9693C9D1F0E9EFA00FCC6C4 /* CloudyCollectionViewCell.swift */,
+				75F4D9BA1F0E162800F80D76 /* OverlayView.xib */,
+				75F4D9BB1F0E162800F80D76 /* CustomOverlayView.xib */,
+				75F4D9BC1F0E162800F80D76 /* CustomOverlayView.swift */,
+				75F4D9BD1F0E162800F80D76 /* ExampleOverlayView.swift */,
+				75F4D9BE1F0E162800F80D76 /* CustomKolodaView.swift */,
+				75F4D9B91F0E162800F80D76 /* BackgroundKolodaAnimator.swift */,
+				E9693C8F1F0E4E2300FCC6C4 /* Constant.swift */,
+			);
+			name = ViewsAndCells;
+			sourceTree = "<group>";
+		};
 		75F4D99A1F0E0E1E00F80D76 = {
 			isa = PBXGroup;
 			children = (
@@ -124,15 +142,8 @@
 				75F4D9AD1F0E0E1E00F80D76 /* Assets.xcassets */,
 				75F4D9AF1F0E0E1E00F80D76 /* LaunchScreen.storyboard */,
 				75F4D9B21F0E0E1E00F80D76 /* Info.plist */,
-				75F4D9B81F0E162800F80D76 /* TestKolodaViewController.swift */,
-				757FAEF11F1393FF00F94D87 /* TestImageView.swift */,
-				75F4D9B91F0E162800F80D76 /* BackgroundKolodaAnimator.swift */,
-				75F4D9BA1F0E162800F80D76 /* OverlayView.xib */,
-				75F4D9BB1F0E162800F80D76 /* CustomOverlayView.xib */,
-				75F4D9BC1F0E162800F80D76 /* CustomOverlayView.swift */,
-				75F4D9BD1F0E162800F80D76 /* ExampleOverlayView.swift */,
-				75F4D9BE1F0E162800F80D76 /* CustomKolodaView.swift */,
-				E9693C6E1F0E20BC00FCC6C4 /* EunyeongVC */,
+				757FAEF51F148E8C00F94D87 /* ViewsAndCells */,
+				E9693C6E1F0E20BC00FCC6C4 /* ViewControllers */,
 				E9693C6B1F0E204D00FCC6C4 /* IntroImaeFile */,
 			);
 			path = Geuneul;
@@ -163,20 +174,17 @@
 			name = IntroImaeFile;
 			sourceTree = "<group>";
 		};
-		E9693C6E1F0E20BC00FCC6C4 /* EunyeongVC */ = {
+		E9693C6E1F0E20BC00FCC6C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				75F4D9B81F0E162800F80D76 /* TestKolodaViewController.swift */,
 				E9693C6C1F0E20A600FCC6C4 /* IntroViewController.swift */,
 				757FAECA1F0EB20800F94D87 /* MainTabBarViewController.swift */,
 				E9693C711F0E2C4800FCC6C4 /* SignUpViewController.swift */,
 				E9693C731F0E2C5600FCC6C4 /* LogInViewController.swift */,
-				E9693C8F1F0E4E2300FCC6C4 /* Constant.swift */,
-				E9693C951F0E66CC00FCC6C4 /* SunnyViewController.swift */,
-				E9693C9B1F0E9EEC00FCC6C4 /* SunnyCollectionViewCell.swift */,
-				E9693C9D1F0E9EFA00FCC6C4 /* CloudyCollectionViewCell.swift */,
 				E9693C971F0E6FB600FCC6C4 /* CloudViewController.swift */,
 			);
-			name = EunyeongVC;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

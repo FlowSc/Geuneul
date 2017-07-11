@@ -25,7 +25,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         
         let loginStatus = UserDefaults.standard.bool(forKey: "autoLogin")
         print(loginStatus)
-        
+        //AutoLogin 구간
         if loginStatus == true {
             let vc = storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
             

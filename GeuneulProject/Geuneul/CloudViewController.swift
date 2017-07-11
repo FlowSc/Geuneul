@@ -40,7 +40,4 @@ class CloudViewController: UIViewController, UICollectionViewDataSource {
         
         return cell
     }
-    
-
-
 }
