@@ -13,17 +13,14 @@ class TestImageView: UIView {
 
     var imageView:UIImageView?
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        createVeiw()
-        
+        createView()
         
     }
     
-    
-    func createVeiw()
+    func createView()
     {
         imageView = UIImageView()
         self.addSubview(imageView!)
@@ -37,33 +34,21 @@ class TestImageView: UIView {
     func setImageData(_ realImage:PHAsset)
     {
         
-        
         let scOption = PHImageRequestOptions.init()
         scOption.deliveryMode = .highQualityFormat
         PHCachingImageManager.default().requestImage(for: realImage,
-                                  targetSize: CGSize(width: 600, height: 800),
-                                  contentMode: PHImageContentMode.aspectFill,
+                                  targetSize: CGSize(width: 1200, height: 1200),
+                                  contentMode: PHImageContentMode.aspectFit,
                                   options: scOption,
                                   resultHandler: { image, _ in
                                     
                                     print(image!.size)
                                     self.imageView?.image = image
-//                                    self.realImageArray.append(image!)
-//                                    if self.realImageArray.count == self.scImageArray.count
-//                                    {
-//                                        self.kolodaView.reloadData()
-//                                    }
-                                    
-                                    
+                                   
         })
-        
     }
-    
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }

@@ -37,6 +37,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                     print(dicArrayUserInfo)
+                    UserDefaults.standard.set(true, forKey: "autoLogin")
                     self.present(vc, animated: true, completion: nil)
                     
                 }
@@ -45,7 +46,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             
             
         }
-        
+        print(UserDefaults.standard.bool(forKey: "autoLogin"))
+
     }
     
     func showAlert(msg:String){

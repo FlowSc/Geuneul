@@ -17,11 +17,6 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
     private var imageManager = PHCachingImageManager.default()
     var scImageArray:PHFetchResult<PHAsset>!
     var realImageArray:[UIImage] = []
-    let scToday = Date()
-    let timeweekago1 = Date(timeIntervalSinceNow: -691200)
-    let timeweekago2 = Date(timeIntervalSinceNow: -604800)
-    
-    
     
     static var sunnyArray:[UIImage] = []
     static var clowdyArray:[UIImage] = []
@@ -57,7 +52,6 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
                                             self.kolodaView.reloadData()
                                         }
                                         
-                                        
             })
 
         }
@@ -82,9 +76,7 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         titleDate.text = dateFormatter.string(from: today)
         loadImage()
         makeRealArray()
-
-
-
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,19 +124,23 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         let timeMonthago2 = Date(timeIntervalSinceNow: -2678400)
         let timeYearago1 = Date(timeIntervalSinceNow: -31622400)
         let timeYearago2 = Date(timeIntervalSinceNow: -31536000)
-        let today1 = Date(timeIntervalSinceNow: -86400)
-        let today2 = Date()
+        let sixMonthAgo1 = Date(timeIntervalSinceNow: -15638400)
+        let sixMonthAgo2 = Date(timeIntervalSinceNow: -15552000)
+//        let today1 = Date(timeIntervalSinceNow: -86400)
+//        let today2 = Date()
 
-        let todayPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", today1 as CVarArg, today2  as CVarArg)
+//        let todayPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", today1 as CVarArg, today2  as CVarArg)
          let weekPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeweekago1 as CVarArg, timeweekago2  as CVarArg)
+        let sixMonthPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", sixMonthAgo1 as CVarArg, sixMonthAgo2  as CVarArg)
         let monthPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeMonthago1 as CVarArg, timeMonthago2 as CVarArg)
         let yearPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeYearago1 as CVarArg, timeYearago2 as CVarArg)
         let scFetchOptions = PHFetchOptions()
-        scFetchOptions.fetchLimit = 10
+//        scFetchOptions.fetchLimit = 10
         scFetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                            ascending: false)]
         
-        let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [weekPredicate, monthPredicate, yearPredicate])
+        //NSPredicate 병합
+        let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [weekPredicate, monthPredicate, yearPredicate, sixMonthPredicate])
 //        scFetchOptions.predicate = weekPredicate
         scFetchOptions.predicate = orPredicate
 //        scFetchOptions.predicate = yearPredicate

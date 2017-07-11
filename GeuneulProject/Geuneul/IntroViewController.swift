@@ -16,11 +16,22 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         scrollView.contentOffset.x = 0
-        scrollView.contentOffset.y = -20
+        scrollView.contentOffset.y = 0
         updatePageNumb()
         scrollView.showsHorizontalScrollIndicator = false
         self.navigationController?.isNavigationBarHidden = true
+        
+        let loginStatus = UserDefaults.standard.bool(forKey: "autoLogin")
+        print(loginStatus)
+        
+        if loginStatus == true {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+            
+            self.present(vc, animated: false, completion: nil)
+        }
+
         
     }
     
