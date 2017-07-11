@@ -101,8 +101,16 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         
         let outOfCardAlertBtn = UIAlertAction.init(title: "내일을 기다릴게요.", style: .default, handler: nil)
         outOfCardAlert.addAction(outOfCardAlertBtn)
-        self.present(outOfCardAlert, animated: true, completion: nil)
         
+        let reloadAction = UIAlertAction.init(title: "다시 확인하시겠어요?", style: .default) {[unowned self] (UIAlertAction) in
+            self.loadImage()
+            self.makeRealArray()
+            self.kolodaView.reloadData()
+        }
+        
+        outOfCardAlert.addAction(reloadAction)
+        
+        self.present(outOfCardAlert, animated: true, completion: nil)
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
@@ -163,8 +171,9 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         scView.setImageData(scImageArray.object(at: index))
         
         return scView.imageView!
-//        return UIImageView(image: realImageArray[index])
     }
+    
+    
     
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
         return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)?.first as? OverlayView
