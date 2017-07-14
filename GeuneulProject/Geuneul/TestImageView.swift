@@ -12,8 +12,9 @@ import Photos
 class TestImageView: UIView {
 
     var imageView:UIImageView?
-    var scTextLabel:UILabel?
+    var scTextLabel:UILabel!
     let dateFormatter = DateFormatter()
+    var scCreationDate:String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +28,8 @@ class TestImageView: UIView {
         imageView = UIImageView()
         scTextLabel = UILabel()
         self.addSubview(imageView!)
-        self.addSubview(scTextLabel!)
+        self.addSubview(scTextLabel)
+        imageView?.addSubview(scTextLabel)
         
     }
     
@@ -50,18 +52,20 @@ class TestImageView: UIView {
                                     
                                     print(image!.size)
                                     self.imageView?.image = image
-//                                    if let data = UIImagePNGRepresentation(image!)
-//                                    {
-//                                        let filename = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)
-//                                        
-//                                        data.
-//                                    }
-                                    print(self.dateFormatter.string(from: realImage.creationDate!))
-                                    self.scTextLabel?.text = self.dateFormatter.string(from: realImage.creationDate!)
-        })
+                                    self.scCreationDate = self.dateFormatter.string(from: realImage.creationDate!)
+                                     })
+        scTextLabel!.text = "\(realImage.creationDate!)"
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setDate(_ realImage:PHAsset){
+        
+        self.scTextLabel?.text = "\(realImage.creationDate ?? Date())"
+        print(realImage.creationDate!)
+//        imageView?.addSubview(scTextLabel!)
+   
     }
 }

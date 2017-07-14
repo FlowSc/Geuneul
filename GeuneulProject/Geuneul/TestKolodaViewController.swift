@@ -138,16 +138,11 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         let timeYearago2 = Date(timeIntervalSinceNow: -31536000)
         let sixMonthAgo1 = Date(timeIntervalSinceNow: -15638400)
         let sixMonthAgo2 = Date(timeIntervalSinceNow: -15552000)
-//        let today1 = Date(timeIntervalSinceNow: -86400)
-//        let today2 = Date()
-
-//        let todayPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", today1 as CVarArg, today2  as CVarArg)
-         let weekPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeweekago1 as CVarArg, timeweekago2  as CVarArg)
+        let weekPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeweekago1 as CVarArg, timeweekago2  as CVarArg)
         let sixMonthPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", sixMonthAgo1 as CVarArg, sixMonthAgo2  as CVarArg)
         let monthPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeMonthago1 as CVarArg, timeMonthago2 as CVarArg)
         let yearPredicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", timeYearago1 as CVarArg, timeYearago2 as CVarArg)
         let scFetchOptions = PHFetchOptions()
-//        scFetchOptions.fetchLimit = 10
         scFetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                            ascending: false)]
         
@@ -173,6 +168,7 @@ class TestKolodaViewController: UIViewController, KolodaViewDelegate, KolodaView
         let scView = TestImageView.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         scView.setImageData(scImageArray.object(at: index))
+        scView.setDate(scImageArray.object(at: index))
         
         return scView.imageView!
     }
